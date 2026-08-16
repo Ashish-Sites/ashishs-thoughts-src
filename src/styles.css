@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss" source("../");
+
+:root {
+  --bg-main: #0c0e12;
+  --bg-subtle: #12161f;
+  --bg-card: #151a24;
+  --bg-elevated: #1b212e;
+  --border-subtle: #222938;
+  --border-highlight: #333d52;
+  --text-primary: #f0f3f8;
+  --text-secondary: #9aa5b8;
+  --text-muted: #5e6b7e;
+  --accent-gold: #d4af37;
+  --accent-gold-soft: rgba(212, 175, 55, 0.12);
+  --accent-green: #3fb950;
+  --accent-blue: #58a6ff;
+  
+  --font-serif: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.03) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(88, 166, 255, 0.02) 0%, transparent 50%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom Editorial Prose Styling */
+.editorial-prose {
+  font-family: var(--font-serif);
+  color: #d1d9e2;
+  font-size: 1.2rem;
+  line-height: 1.85;
+  letter-spacing: -0.003em;
+}
+
+.editorial-prose p {
+  margin-bottom: 1.75rem;
+}
+
+.editorial-prose h2,
+.editorial-prose h3,
+.editorial-prose h4 {
+  font-family: var(--font-serif);
+  color: #f5f7fa;
+  font-weight: 500;
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.editorial-prose h2 {
+  font-size: 1.75rem;
+}
+
+.editorial-prose h3 {
+  font-size: 1.4rem;
+}
+
+.editorial-prose blockquote {
+  font-style: italic;
+  border-left: 2px solid var(--accent-gold);
+  padding-left: 1.5rem;
+  margin: 2.25rem 0;
+  color: #f1ebd8;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.04) 0%, transparent 100%);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.editorial-prose blockquote p {
+  margin-bottom: 0;
+}
+
+.editorial-prose hr {
+  border: 0;
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 3rem auto;
+  width: 40%;
+}
+
+.editorial-prose pre {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #c9d1d9;
+  margin: 2rem 0;
+}
+
+.editorial-prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background-color: rgba(255, 255, 255, 0.06);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  color: #e2e8f0;
+}
+
+.editorial-prose pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.editorial-prose ul,
+.editorial-prose ol {
+  margin: 1.5rem 0 1.75rem 1.5rem;
+}
+
+.editorial-prose li {
+  margin-bottom: 0.6rem;
+}
+
+.editorial-prose strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.editorial-dropcap > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-size: 3.8rem;
+  line-height: 0.82;
+  padding-top: 4px;
+  padding-right: 12px;
+  padding-bottom: 0px;
+  color: var(--accent-gold);
+  font-weight: 400;
+}
+
+/* Subtle custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-highlight);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Shimmer animation for backup loading state */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
